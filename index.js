@@ -2,7 +2,7 @@
 function addItemToList(){
   $('#js-shopping-list-form').submit(event => {
     event.preventDefault();
-    let userInput = $("#shopping-list-entry").val()
+    let userInput = $("#shopping-list-entry").val();
     $('.shopping-list').append(
       `<li>
         <span class="shopping-item">${userInput}</span>
@@ -14,18 +14,19 @@ function addItemToList(){
             <span class="button-label">delete</span>
           </button>
         </div>
-      </li>`
-    )
-    
-        
-  })
+      </li>`);
+    $('#shopping-list-entry').val('');  
+  });
+  
+  
 } 
 
 $(addItemToList);
 
 function checkOffItem() {
-  $('ul').on('click', '.shopping-item-toggle', event => {
-    $(event.target).closest('li').find('.shopping-item').toggleClass('shopping-item__checked')
+  $('ul').on('click', '.shopping-item-toggle', word => {
+    console.log(word.target);
+    $(word.target).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
   })}
 
 $(checkOffItem);
